@@ -30,6 +30,8 @@ class Timer(object):
         """
         url = 'https://a.jd.com//ajax/queryServerData.html'
         ret = requests.get(url).text
+        print ('122')
+        print (ret)
         js = json.loads(ret)
         return int(js["serverTime"])
 
@@ -45,7 +47,7 @@ class Timer(object):
         计算本地与京东服务器时间差
         :return:
         """
-        return self.local_time() - self.jd_time()
+        return self.local_time() - self.local_time()
 
     def start(self):
         logger.info('正在等待到达设定时间:{}，检测本地时间与京东服务器时间误差为【{}】毫秒'.format(self.buy_time, self.diff_time))
